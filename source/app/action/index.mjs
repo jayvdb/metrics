@@ -264,7 +264,7 @@ async function wait(seconds) {
     const plugins = {}
     for (const name of Object.keys(Plugins).filter(key => !["base", "core"].includes(key))) {
       //Parse inputs
-      const {[name]:enabled, ...inputs} = metadata.plugins[name].inputs.action({core, existing:true})
+      const {[name]:enabled, ...inputs} = metadata.plugins[name].inputs.action({core, defined:true, plugin:true})
       const {[name]:_, ..._inputs} = metadata.plugins[name].inputs.action({core})
       plugins[name] = {enabled}
       //Register user inputs

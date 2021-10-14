@@ -201,12 +201,10 @@ metadata.plugin = async function({__plugins, name, logger}) {
       )
 
       //Action inputs
-      meta.inputs.action = function({core, existing = false}) {
+      meta.inputs.action = function({core, defined = false, plugin =false}) {
         //Build query object from inputs
         const q = {}
         for (const key of Object.keys(inputs)) {
-          if ((existing) && (!(`INPUT_${key.toLocaleUpperCase()}` in process.env)))
-            continue
           const value = `${core.getInput(key)}`.trim()
           try {
             q[key] = decodeURIComponent(value)
@@ -216,7 +214,10 @@ metadata.plugin = async function({__plugins, name, logger}) {
             q[key] = value
           }
         }
-        return meta.inputs({q, account:"bypass"})
+        const inputs = meta.inputs({q, account:"bypass"})
+        if (defined)
+          return Object.fromEntries(Object.entries(inputs).filter(([key]) => metadata.to.env(key, {plugin}) in process.env))
+        return inputs
       }
     }
 
@@ -326,4 +327,7 @@ metadata.to = {
     key = key.replace(/^plugin_/, "").replace(/_/g, ".")
     return name ? key.replace(new RegExp(`^(${name}.)`, "g"), "") : key
   },
+  env(key, {plugin = false} = {}) {
+    return `INPUT_${plugin ? "PLUGIN_" : ""}${key.replace(/\./g, "_")}`.toLocaleUpperCase()
+  }
 }
