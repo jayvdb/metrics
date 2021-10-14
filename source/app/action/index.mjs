@@ -264,12 +264,13 @@ async function wait(seconds) {
     const plugins = {}
     for (const name of Object.keys(Plugins).filter(key => !["base", "core"].includes(key))) {
       //Parse inputs
-      const {[name]:enabled, ...inputs} = metadata.plugins[name].inputs.action({core})
+      const {[name]:enabled, ...inputs} = metadata.plugins[name].inputs.action({core, existing:true})
+      const {[name]:_, ..._inputs} = metadata.plugins[name].inputs.action({core})
       plugins[name] = {enabled}
       //Register user inputs
       if (enabled) {
         info.break()
-        info.group({metadata, name, inputs:Object.fromEntries(Object.entries(metadata.plugins[name].inputs).map(([key]) => [key, inputs[key] ?? metadata.plugins[name].inputs[key].default]))})
+        info.group({metadata, name, inputs:_inputs})
         q[name] = true
         for (const [key, value] of Object.entries(inputs)) {
           //Store token in plugin configuration

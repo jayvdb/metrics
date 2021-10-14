@@ -201,11 +201,11 @@ metadata.plugin = async function({__plugins, name, logger}) {
       )
 
       //Action inputs
-      meta.inputs.action = function({core}) {
+      meta.inputs.action = function({core, existing = false}) {
         //Build query object from inputs
         const q = {}
         for (const key of Object.keys(inputs)) {
-          if (!(`INPUT_${key.toLocaleUpperCase()}` in process.env))
+          if ((existing) && (!(`INPUT_${key.toLocaleUpperCase()}` in process.env)))
             continue
           const value = `${core.getInput(key)}`.trim()
           try {
