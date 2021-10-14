@@ -205,6 +205,8 @@ metadata.plugin = async function({__plugins, name, logger}) {
         //Build query object from inputs
         const q = {}
         for (const key of Object.keys(inputs)) {
+          if (!(`INPUT_${key.toLocaleUpperCase()}` in process.env))
+            continue
           const value = `${core.getInput(key)}`.trim()
           try {
             q[key] = decodeURIComponent(value)

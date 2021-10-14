@@ -269,7 +269,7 @@ async function wait(seconds) {
       //Register user inputs
       if (enabled) {
         info.break()
-        info.group({metadata, name, inputs})
+        info.group({metadata, name, inputs:Object.fromEntries(Object.entries(metadata.plugins[name].inputs).map(([key]) => [key, inputs[key]]))})
         q[name] = true
         for (const [key, value] of Object.entries(inputs)) {
           //Store token in plugin configuration
