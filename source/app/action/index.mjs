@@ -171,7 +171,7 @@ function quit(reason) {
     //See https://github.blog/2021-04-05-behind-githubs-new-authentication-token-formats
     info("GitHub token format", /^gh[pousr]_/.test(token) ? "correct" : "(old or invalid)")
     if (!token)
-      throw new Error("You must provide a valid GitHub personal token to gather your metrics (see https://github.com/lowlighter/metrics/blob/master/.github/readme/partials/documentation/setup/action.md for more informations)")
+      throw new Error("You must provide a valid GitHub personal token to gather your metrics (see https://github.com/lowlighter/metrics/blob/master/.github/readme/partials/documentation/setup/action.md for more information)")
     conf.settings.token = token
     const api = {}
     const resources = {}
@@ -210,7 +210,7 @@ function quit(reason) {
         const {headers} = await api.rest.request("HEAD /")
         if (!("x-oauth-scopes" in headers)) {
           throw new Error(
-            'GitHub API did not send any "x-oauth-scopes" header back from provided "token". It means that your token may not be valid or you\'re using GITHUB_TOKEN which cannot be used since metrics will fetch data outside of this repository scope. Use a personal access token instead (see https://github.com/lowlighter/metrics/blob/master/.github/readme/partials/documentation/setup/action.md for more informations).',
+            'GitHub API did not send any "x-oauth-scopes" header back from provided "token". It means that your token may not be valid or you\'re using GITHUB_TOKEN which cannot be used since metrics will fetch data outside of this repository scope. Use a personal access token instead (see https://github.com/lowlighter/metrics/blob/master/.github/readme/partials/documentation/setup/action.md for more information).',
           )
         }
         info("Token validity", "seems ok")
@@ -252,7 +252,7 @@ function quit(reason) {
     //Committer
     const committer = {}
     if ((!dryrun) && (_action !== "none")) {
-      //Compute committer informations
+      //Compute committer information
       committer.token = _token || token
       committer.gist = _action === "gist" ? _gist : null
       committer.commit = true
@@ -397,7 +397,7 @@ function quit(reason) {
     let rendered = await retry(async () => {
       const {rendered, errors} = await metrics({login: user, q}, {graphql, rest, plugins, conf, die, verify, convert}, {Plugins, Templates})
       if (errors.length) {
-        console.warn(`::group::${errors.length} error(s) occured`)
+        console.warn(`::group::${errors.length} error(s) occurred`)
         console.warn(util.inspect(errors, {depth: Infinity, maxStringLength: 256}))
         console.warn("::endgroup::")
       }
@@ -690,7 +690,7 @@ function quit(reason) {
     console.error(error)
     //Print debug buffer if debug was not enabled (if it is, it's already logged on the fly)
     if (!DEBUG) {
-      for (const log of [info.break(), "An error occured, logging debug message :", ...debugged])
+      for (const log of [info.break(), "An error occurred, logging debug message :", ...debugged])
         console.log(log)
     }
     core.setFailed(error.message)

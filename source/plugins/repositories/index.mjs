@@ -18,7 +18,7 @@ export default async function({login, q, imports, graphql, queries, data, accoun
       repositories.list.push(...edges.map(({node}) => format(node)))
     }
 
-    //Fetch repositories informations
+    //Fetch repositories information
     for (const repo of featured) {
       const {owner = login, name} = repo.match(/^(?:(?<owner>[\s\S]*)[/])?(?<name>[\s\S]+)$/)?.groups ?? {}
       const {repository} = await graphql(queries.repositories.repository({owner, name}))

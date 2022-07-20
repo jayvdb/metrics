@@ -39,7 +39,7 @@ inputs:
 
   plugin_habits_facts:
     description: |
-      Midly interesting facts
+      Mildly interesting facts
 
       It includes indentation type, average number of characters per line of code, and most active time and day
     type: boolean

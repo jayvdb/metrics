@@ -1,7 +1,7 @@
 name: 📜 Repository licenses
 category: github
 description: |
-  This plugin display repository license informations like permissions, limitations and conditions along with additional stats about dependencies.
+  This plugin display repository license information like permissions, limitations and conditions along with additional stats about dependencies.
 examples:
   +permissions, limitations and conditions: https://github.com/lowlighter/metrics/blob/examples/metrics.plugin.licenses.svg
   +licenses overview: https://github.com/lowlighter/metrics/blob/examples/metrics.plugin.licenses.ratio.svg

@@ -14,14 +14,14 @@ export default async function({login, q, imports, data, account}, {enabled = fal
       throw {error: {message: "Company stock symbol is not set"}}
     symbol = symbol.toLocaleUpperCase()
 
-    //Query API for company informations
+    //Query API for company information
     console.debug(`metrics/compute/${login}/plugins > stock > querying api for company`)
     const {data: {quoteType: {shortName: company}}} = await imports.axios.get("https://yh-finance.p.rapidapi.com/stock/v2/get-profile", {
       params: {symbol, region: "US"},
       headers: {"x-rapidapi-key": token},
     })
 
-    //Query API for sotck charts
+    //Query API for stock charts
     console.debug(`metrics/compute/${login}/plugins > stock > querying api for stock`)
     const {data: {chart: {result: [{meta, timestamp, indicators: {quote: [{close}]}}]}}} = await imports.axios.get("https://yh-finance.p.rapidapi.com/stock/v2/get-chart", {
       params: {interval, symbol, range: duration, region: "US"},
