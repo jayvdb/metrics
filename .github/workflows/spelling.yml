@@ -62,6 +62,13 @@ jobs:
           cspell:django/django.txt
           cspell:npm/npm.txt
           cspell:aws/aws.txt
+          softwareTerms.txt
+          fullstack.txt
+          html.txt
+          npm.txt
+          node.txt
+          css.txt
+          filetypes.txt
         dictionary_source_prefixes: >
           {
             "cspell": "https://raw.githubusercontent.com/check-spelling/cspell-dicts/master/dictionaries/"
