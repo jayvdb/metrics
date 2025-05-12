@@ -48,7 +48,7 @@ jobs:
     steps:
     - name: check-spelling
       id: spelling
-      uses: check-spelling/check-spelling@v0.0.20
+      uses: check-spelling/check-spelling@v0.0.24
       with:
         experimental_apply_changes_via_bot: ${{ github.repository_owner != 'lowlighter' && 1 || 0 }}
         suppress_push_for_open_pull_request: 1
@@ -62,7 +62,10 @@ jobs:
           cspell:django/django.txt
           cspell:npm/npm.txt
           cspell:aws/aws.txt
-        check_extra_dictionaries: ''
+        dictionary_source_prefixes: >
+          {
+            "cspell": "https://raw.githubusercontent.com/check-spelling/cspell-dicts/master/dictionaries/"
+          }
 
   comment:
     name: Report
@@ -74,7 +77,7 @@ jobs:
     if: (success() || failure()) && needs.spelling.outputs.followup
     steps:
     - name: comment
-      uses: check-spelling/check-spelling@v0.0.20
+      uses: check-spelling/check-spelling@v0.0.24
       with:
         checkout: true
         task: ${{ needs.spelling.outputs.followup }}
@@ -97,7 +100,7 @@ jobs:
       cancel-in-progress: false
     steps:
     - name: apply spelling updates
-      uses: check-spelling/check-spelling@v0.0.20
+      uses: check-spelling/check-spelling@v0.0.24
       with:
         experimental_apply_changes_via_bot: ${{ github.repository_owner != 'lowlighter' && 1 || 0 }}
         checkout: true
