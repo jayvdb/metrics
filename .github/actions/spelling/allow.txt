@@ -4,7 +4,12 @@ apiname
 appdetails
 appids
 appinfo
+bitcoin
+coingecko
+dajneem
 deno
+emojis
+eur
 Flickr
 gpgarmor
 github
@@ -13,6 +18,7 @@ https
 IPlayer
 ISteam
 joinmastodon
+jpy
 leetcode
 MBTI
 Nie
@@ -38,6 +44,7 @@ timecreated
 tspan
 ubuntu
 unlocktime
+usd
 userid
 xticked
 xticks

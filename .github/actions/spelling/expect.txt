@@ -217,6 +217,7 @@ octicon
 OCTO
 octocat
 octokit
+octokits
 octonaut
 octoraw
 oid
@@ -256,6 +257,7 @@ rbren
 rcopy
 readdir
 readme
+readmes
 readonly
 reated
 recenttracks
@@ -320,6 +322,7 @@ transfonter
 trollface
 TSLA
 twemoji
+twemojis
 uapi
 uconf
 uid
@@ -330,6 +333,7 @@ underlinenav
 Unescape
 upcase
 upvote
+upvotes
 urgenthighalert
 urgentlowalert
 uri

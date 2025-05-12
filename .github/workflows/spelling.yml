@@ -55,20 +55,15 @@ jobs:
         checkout: true
         post_comment: 0
         extra_dictionaries:
-          cspell:html/html.txt
-          cspell:filetypes/filetypes.txt
-          cspell:css/css.txt
-          cspell:fullstack/fullstack.txt
-          cspell:django/django.txt
-          cspell:npm/npm.txt
-          cspell:aws/aws.txt
-          softwareTerms.txt
+          aws.txt
+          css.txt
+          extra.txt
+          filetypes.txt
           fullstack.txt
           html.txt
-          npm.txt
           node.txt
-          css.txt
-          filetypes.txt
+          npm.txt
+          softwareTerms.txt
         dictionary_source_prefixes: >
           {
             "cspell": "https://raw.githubusercontent.com/check-spelling/cspell-dicts/main/dictionaries/"
