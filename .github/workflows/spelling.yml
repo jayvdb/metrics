@@ -57,7 +57,9 @@ jobs:
         extra_dictionaries:
           aws.txt
           css.txt
+          django.txt
           extra.txt
+          filesystems.txt
           filetypes.txt
           fullstack.txt
           html.txt
