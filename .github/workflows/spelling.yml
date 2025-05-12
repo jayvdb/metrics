@@ -71,7 +71,7 @@ jobs:
           filetypes.txt
         dictionary_source_prefixes: >
           {
-            "cspell": "https://raw.githubusercontent.com/check-spelling/cspell-dicts/master/dictionaries/"
+            "cspell": "https://raw.githubusercontent.com/check-spelling/cspell-dicts/main/dictionaries/"
           }
 
   comment:
